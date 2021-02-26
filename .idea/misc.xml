@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../../layout/compose-model-1614313024500.xml" value="0.25" />
+        <entry key="../../../../../../layout/compose-model-1614313909810.xml" value="0.5" />
+        <entry key="../../../../../../layout/compose-model-1614314055141.xml" value="0.25" />
+        <entry key="../../../../../../layout/compose-model-1614315628840.xml" value="0.25" />
+        <entry key="../../../../../../layout/compose-model-1614320045085.xml" value="0.26055743243243246" />
+        <entry key="../../../../../../layout/compose-model-1614320641458.xml" value="0.26055743243243246" />
+        <entry key="../../../../../../layout/compose-model-1614322242004.xml" value="0.5" />
+        <entry key="../../../../../../layout/compose-model-1614327341352.xml" value="0.26055743243243246" />
+        <entry key="../../../../../../layout/compose-model-1614329145504.xml" value="0.25" />
+        <entry key="../../../../../../layout/compose-model-1614329732103.xml" value="0.2814814814814815" />
+        <entry key="../../../../../../layout/compose-model-1614330824071.xml" value="0.26033755274261605" />
+        <entry key="../../../../../../layout/compose-model-1614330825078.xml" value="0.2814814814814815" />
+        <entry key="../../../../../../layout/compose-model-1614334662189.xml" value="1.0" />
+        <entry key="../../../../../../layout/compose-model-1614336787949.xml" value="1.0" />
+        <entry key="../../../../../../layout/compose-model-1614336869944.xml" value="0.5" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/mjmanaog/puppydoption/ui/components/BottomNavigationScreens.kt" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
