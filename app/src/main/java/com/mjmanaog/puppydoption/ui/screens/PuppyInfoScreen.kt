@@ -1,5 +1,6 @@
 package com.mjmanaog.puppydoption.ui.components
 
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
@@ -22,10 +23,7 @@ fun PuppyInfoScreen(puppyId: Int, navController: NavHostController?) {
         icon = Icons.Default.ArrowBack,
         iconClickAction = { navController?.navigateUp() })}) {
         Surface(modifier = Modifier.fillMaxSize()) {
-            Column(
-                modifier = Modifier
-                    .padding(15.dp),
-            ) {
+            Column{
                 PuppyInfoCard(puppyInfo)
                 ReusableHeaderAndBody(header = "Personality", body = puppyInfo.personalities)
                 ReusableHeaderAndBody(header = "Story", body = puppyInfo.stories)

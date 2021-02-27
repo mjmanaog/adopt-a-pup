@@ -5,37 +5,31 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
-import com.airbnb.lottie.LottieAnimationView
-import com.airbnb.lottie.LottieDrawable
-import com.mjmanaog.puppydoption.DoggoAnimation
 import com.mjmanaog.puppydoption.R
 import com.mjmanaog.puppydoption.ui.components.DefaultH2TextDark
 import com.mjmanaog.puppydoption.ui.components.DefaultH2TextWhite
 
 
 @Composable
-fun LandingScreen(navController: NavController?, doggoAnimation: DoggoAnimation) {
+fun LandingScreen(navController: NavController?) {
     Surface(modifier = Modifier.fillMaxSize()) {
-        LandingCard (doggoAnimation = doggoAnimation){
-            navController?.navigate("puppy_list")
+        LandingCard (){
+            navController?.navigate("main_screen")
         }
     }
 }
 
 @Composable
-fun LandingCard( doggoAnimation: DoggoAnimation, clickAction: () -> Unit) {
+fun LandingCard(clickAction: () -> Unit) {
     Card(
         modifier = Modifier
             .wrapContentWidth()
@@ -70,21 +64,21 @@ fun LandingCard( doggoAnimation: DoggoAnimation, clickAction: () -> Unit) {
                     color = MaterialTheme.colors.primaryVariant
                 )
             }
-//            val painterLogo: Painter = painterResource(id = R.drawable.ic_logo)
-//            Image(
-//                modifier = Modifier.padding(bottom = 20.dp),
-//                painter = painterLogo,
-//                contentDescription = "App Logo"
-//            )
-            val context = LocalContext.current
-            val customView = remember { LottieAnimationView(context)}
-            AndroidView(factory = { customView }){ view ->
-                with(view){
-                    repeatMode = LottieDrawable.RESTART
-                    setAnimation(doggoAnimation.animId)
-                    playAnimation()
-                }
-            }
+            val painterLogo: Painter = painterResource(id = R.drawable.ic_logo)
+            Image(
+                modifier = Modifier.padding(bottom = 20.dp),
+                painter = painterLogo,
+                contentDescription = "App Logo"
+            )
+//            val context = LocalContext.current
+//            val customView = remember { LottieAnimationView(context)}
+//            AndroidView(factory = { customView }){ view ->
+//                with(view){
+//                    repeatMode = LottieDrawable.RESTART
+//                    setAnimation(doggoAnimation.animId)
+//                    playAnimation()
+//                }
+//            }
 
             DefaultH2TextDark(text = "Find your best buddy in just a few clicks!", TextAlign.Center)
             Button(

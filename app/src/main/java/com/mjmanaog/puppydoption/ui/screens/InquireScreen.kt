@@ -24,7 +24,7 @@ fun InquireScreen(){
             iconClickAction = {})
     }) {
         Surface(modifier = Modifier.fillMaxSize()) {
-            Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
+            Column(Modifier.fillMaxSize()) {
                 ContactCard(icon = R.drawable.ic_web, text = "www.puppydoption.com")
                 ContactCard(icon = R.drawable.ic_fb, text = "@puppydoption.official")
                 ContactCard(icon = R.drawable.ic_twitter, text = "@puppydoption")

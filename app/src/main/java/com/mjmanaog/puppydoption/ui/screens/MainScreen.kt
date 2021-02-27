@@ -9,12 +9,13 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import com.mjmanaog.puppydoption.R
+import com.mjmanaog.puppydoption.ui.components.PuppyInfoScreen
 import com.mjmanaog.puppydoption.ui.network.model.puppyList
 
 sealed class BottomNavigationScreens(val route: String, @StringRes val resourceId: Int, val icon: Int) {
@@ -36,7 +37,7 @@ fun MainScreen() {
     )
     Scaffold(
         bottomBar = {
-            SpookyAppBottomNavigation(navController, bottomNavigationItems)
+            PuppyBottomNavigation(navController, bottomNavigationItems)
         },
     ) {
         MainScreenNavigationConfigurations(navController)
@@ -52,6 +53,11 @@ private fun MainScreenNavigationConfigurations(
         composable(BottomNavigationScreens.PuppyList.route) {
             PuppyListScreen(puppies = puppyList, navController = navController)
         }
+        composable(route = "puppy_info/{puppyId}", arguments = listOf(navArgument("puppyId"){
+            type = NavType.IntType
+        })){
+            PuppyInfoScreen(it.arguments!!.getInt("puppyId"), navController = navController)
+        }
         composable(BottomNavigationScreens.Inquiry.route) {
             InquireScreen()
         }
@@ -62,7 +68,7 @@ private fun MainScreenNavigationConfigurations(
 }
 
 @Composable
-private fun SpookyAppBottomNavigation(
+private fun PuppyBottomNavigation(
     navController: NavHostController,
     items: List<BottomNavigationScreens>
 ) {

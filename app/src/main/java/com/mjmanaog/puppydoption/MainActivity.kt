@@ -25,8 +25,7 @@ import com.google.firebase.ktx.Firebase
 import com.mjmanaog.puppydoption.ui.components.PuppyInfoScreen
 import com.mjmanaog.puppydoption.ui.network.model.PuppyInfo
 import com.mjmanaog.puppydoption.ui.network.model.puppyList
-import com.mjmanaog.puppydoption.ui.screens.LandingScreen
-import com.mjmanaog.puppydoption.ui.screens.PuppyListScreen
+import com.mjmanaog.puppydoption.ui.screens.*
 import com.mjmanaog.puppydoption.ui.theme.PuppydoptionTheme
 
 class MainActivity : AppCompatActivity() {
@@ -57,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         setContent {
             PuppydoptionTheme {
                 PuppyApplication()
+//                MainScreen()
             }
         }
     }
@@ -68,23 +68,12 @@ fun PuppyApplication(puppy: List<PuppyInfo.Puppy> = puppyList){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "landing_screen"){
         composable("landing_screen"){
-            LandingScreen(navController = navController, DoggoAnimation.Doggo)
+            LandingScreen(navController = navController)
         }
-        composable("puppy_list"){
-            PuppyListScreen(puppies = puppy, navController = navController)
-        }
-        composable(route = "puppy_info/{puppyId}", arguments = listOf(navArgument("puppyId"){
-            type = NavType.IntType
-        })){
-            PuppyInfoScreen(it.arguments!!.getInt("puppyId"), navController = navController)
+        composable("main_screen") {
+            MainScreen()
         }
     }
-}
-
-
-
-sealed class DoggoAnimation(val animId: Int){
-    object Doggo: DoggoAnimation(com.mjmanaog.puppydoption.R.raw.doggo)
 }
 
 

@@ -18,13 +18,12 @@
         <entry key="../../../../../../layout/compose-model-1614334662189.xml" value="1.0" />
         <entry key="../../../../../../layout/compose-model-1614336787949.xml" value="1.0" />
         <entry key="../../../../../../layout/compose-model-1614336869944.xml" value="0.5" />
+        <entry key="../../../../../../layout/compose-model-1614405209027.xml" value="1.0" />
+        <entry key="../../../../../../layout/compose-model-1614407009780.xml" value="0.25" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/mjmanaog/puppydoption/ui/components/BottomNavigationScreens.kt" />
-  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

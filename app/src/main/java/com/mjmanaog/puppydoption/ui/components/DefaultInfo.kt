@@ -11,7 +11,7 @@ fun ReusableHeaderAndBody(header: String, body: String) {
     Column(modifier = Modifier
         .fillMaxWidth()
         .wrapContentHeight()
-        .padding(15.dp)) {
+        .padding(start = 20.dp, top = 15.dp, bottom = 8.dp,end = 20.dp )) {
         DefaultH2TextOrange(text = header,TextAlign.Start)
         DefaultCaptionTextDark(text = "  ")
         DefaultBody2TextDark(text = body, TextAlign.Start)

@@ -2,6 +2,7 @@ package com.mjmanaog.puppydoption.ui.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -13,14 +14,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
+import coil.transform.Transformation
 import com.mjmanaog.puppydoption.R
 import com.mjmanaog.puppydoption.ui.network.model.PuppyInfo
+import com.mjmanaog.puppydoption.ui.network.model.puppyList
 import com.mjmanaog.puppydoption.ui.theme.PuppydoptionTheme
 import dev.chrisbanes.accompanist.coil.CoilImage
 
@@ -102,7 +107,7 @@ fun PuppyContent(
                 }
             )
             Image(painter = paintGender, contentDescription = "Gender Icon")
-            DefaultH2TextOrange(text = name,TextAlign.Start)
+            DefaultH2TextOrange(text = name, TextAlign.Start)
         }
         DefaultBody1TextDark(text = breed, TextAlign.Center)
         DefaultBody1TextDark(text = dob, TextAlign.Center)
@@ -111,51 +116,104 @@ fun PuppyContent(
 
 @Composable
 fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
-    Card(
-        modifier = Modifier
-            .wrapContentWidth()
-            .wrapContentHeight()
-            .padding(all = 15.dp),
-        elevation = 8.dp,
-        backgroundColor = Color.White,
-        shape = RoundedCornerShape(5)
+    Column(
+        modifier = Modifier.fillMaxWidth(),
     ) {
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(300.dp)
+                .padding(bottom = 20.dp)
         ) {
-            PuppyImg(imgURL = puppyInfo.imageURL, imgSize = 150.dp)
-            Row (verticalAlignment = Alignment.CenterVertically){
-                val paintGender: Painter = painterResource(
-                    id = if (puppyInfo.gender.toLowerCase() == "female") {
-                        R.drawable.ic_girl
-                    } else {
-                        R.drawable.ic_boy
+            CoilImage(
+                data = puppyInfo.imageURL,
+                contentDescription = "Puppy Image",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop,
+                loading = {
+                    Box(Modifier.matchParentSize()) {
+                        CircularProgressIndicator(Modifier.align(Alignment.Center))
                     }
-                )
-                Image(
-                    modifier = Modifier.padding(end = 5.dp),
-                    painter = paintGender,
-                    contentDescription = "Gender Icon"
-                )
-                DefaultH1TextOrange(text = puppyInfo.name)
-            }
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-            ) {
-                IconText(icon = R.drawable.ic_calendar, text = puppyInfo.dob, 3)
-                IconText(icon = R.drawable.ic_weight, text = puppyInfo.weight, 3)
-            }
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center,
-            ) {
-                IconText(icon = R.drawable.ic_syringe, text = puppyInfo.vaccines, 3)
-            }
-            DefaultH1TextOrange(text = " ")
+                },
+            )
         }
+        Row(
+            modifier = Modifier.padding(start = 15.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            val paintGender: Painter = painterResource(
+                id = if (puppyInfo.gender.toLowerCase() == "female") {
+                    R.drawable.ic_girl
+                } else {
+                    R.drawable.ic_boy
+                }
+            )
+            Image(
+                modifier = Modifier.padding(end = 5.dp),
+                painter = paintGender,
+                contentDescription = "Gender Icon"
+            )
+            DefaultH1TextOrange(text = puppyInfo.name)
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 15.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            Box(
+                modifier = Modifier
+                    .wrapContentHeight()
+                    .width(150.dp)
+                    .padding(5.dp)
+                    .border(1.dp, MaterialTheme.colors.primaryVariant, RoundedCornerShape(20))
+            ) {
+                IconText(icon = R.drawable.ic_calendar, text = puppyInfo.dob, 5)
+            }
+            Box(
+                modifier = Modifier
+                    .wrapContentHeight()
+                    .width(200.dp)
+                    .padding(5.dp)
+                    .border(1.dp, MaterialTheme.colors.primaryVariant, RoundedCornerShape(20))
+            ) {
+                IconText(icon = R.drawable.ic_paw, text = puppyInfo.breed, 5)
+            }
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 15.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            Box(
+                modifier = Modifier
+                    .wrapContentHeight()
+                    .width(150.dp)
+                    .padding(5.dp)
+                    .border(1.dp, MaterialTheme.colors.primaryVariant, RoundedCornerShape(20))
+            ) {
+                IconText(icon = R.drawable.ic_weight, text = puppyInfo.weight, 5)
+            }
+            Box(
+                modifier = Modifier
+                    .wrapContentHeight()
+                    .width(200.dp)
+                    .padding(5.dp)
+                    .border(1.dp, MaterialTheme.colors.primaryVariant, RoundedCornerShape(20))
+            ) {
+                IconText(icon = R.drawable.ic_syringe, text = puppyInfo.vaccines, 5)
+            }
+        }
+        DefaultH1TextOrange(text = " ")
     }
 }
 
 
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    PuppydoptionTheme {
+        PuppyInfoCard(puppyInfo = puppyList[0])
+    }
+}

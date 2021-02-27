@@ -40,7 +40,7 @@ fun IconText(icon: Int, text: String, padding: Int) {
     ) {
         val paintIcon: Painter = painterResource(icon)
         Image(
-            modifier = Modifier.padding(start = 15.dp, end = 8.dp),
+            modifier = Modifier.padding(8.dp),
             painter = paintIcon,
             contentDescription = "Contact Icon"
         )
