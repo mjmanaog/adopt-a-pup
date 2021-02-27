@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'com.google.gms.google-services'
 }
 
 android {
@@ -60,26 +59,6 @@ dependencies {
 
     implementation "dev.chrisbanes.accompanist:accompanist-coil:0.6.0"
 
-
-    //retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.6.4'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.4'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.4'
-
-    //lifecycle
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    kapt 'androidx.lifecycle:lifecycle-compiler:2.3.0'
-    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
-
-    implementation platform('com.google.firebase:firebase-bom:26.5.0')
-
-    implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-database-ktx'
-
-
     implementation "androidx.navigation:navigation-compose:1.0.0-alpha08"
-
-    def lottieVersion = "3.6.1"
-    implementation "com.airbnb.android:lottie:$lottieVersion"
 
 }
