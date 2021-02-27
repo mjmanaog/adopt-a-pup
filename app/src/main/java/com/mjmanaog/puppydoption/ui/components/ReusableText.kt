@@ -29,16 +29,11 @@ fun DefaultH2TextDark(text: String, alignment: TextAlign){
 
 @Composable
 fun DefaultBody1TextDark(text: String, alignment: TextAlign){
-    Text(text = text, textAlign = TextAlign.Center, style = MaterialTheme.typography.body2, color = MaterialTheme.colors.secondaryVariant)
+    Text(text = text, textAlign = alignment, style = MaterialTheme.typography.body2, color = MaterialTheme.colors.secondaryVariant)
 }
 
 
 @Composable
 fun DefaultBody2TextDark(text: String, alignment: TextAlign){
     Text(text = text, textAlign = alignment, style = MaterialTheme.typography.body2, color = MaterialTheme.colors.secondaryVariant)
-}
-
-@Composable
-fun DefaultCaptionTextDark(text: String){
-    Text(text = text, style = MaterialTheme.typography.caption, color = MaterialTheme.colors.secondaryVariant)
 }

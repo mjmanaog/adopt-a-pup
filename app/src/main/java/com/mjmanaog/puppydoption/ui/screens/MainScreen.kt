@@ -15,14 +15,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import com.mjmanaog.puppydoption.R
+import com.mjmanaog.puppydoption.helpers.*
 import com.mjmanaog.puppydoption.ui.components.PuppyInfoScreen
-import com.mjmanaog.puppydoption.ui.network.model.puppyList
+import com.mjmanaog.puppydoption.network.model.puppyList
 
 sealed class BottomNavigationScreens(val route: String, @StringRes val resourceId: Int, val icon: Int) {
-
-    object PuppyList : BottomNavigationScreens("puppy_list", R.string.puppy_list_route, R.drawable.ic_find)
-    object Inquiry : BottomNavigationScreens("inquiry", R.string.inquiry_route, R.drawable.ic_inquire)
-    object FAQ : BottomNavigationScreens("faq", R.string.faq_route, R.drawable.ic_faq)
+    object PuppyList : BottomNavigationScreens(ROUTE_PUPPY_LIST, R.string.nav_find_puppy, R.drawable.ic_find)
+    object Inquiry : BottomNavigationScreens(ROUTE_INQUIRY, R.string.nav_inquiry, R.drawable.ic_inquire)
+    object FAQ : BottomNavigationScreens(ROUTE_FAQ, R.string.nav_faq, R.drawable.ic_faq)
 }
 @ExperimentalFoundationApi
 @Composable
@@ -53,16 +53,16 @@ private fun MainScreenNavigationConfigurations(
         composable(BottomNavigationScreens.PuppyList.route) {
             PuppyListScreen(puppies = puppyList, navController = navController)
         }
-        composable(route = "puppy_info/{puppyId}", arguments = listOf(navArgument("puppyId"){
+        composable(route = "${ROUTE_PUPPY_INFO}/{puppyId}", arguments = listOf(navArgument(ARG_PUPPY_ID){
             type = NavType.IntType
         })){
-            PuppyInfoScreen(it.arguments!!.getInt("puppyId"), navController = navController)
+            PuppyInfoScreen(it.arguments!!.getInt(ARG_PUPPY_ID), navController = navController)
         }
         composable(BottomNavigationScreens.Inquiry.route) {
             InquireScreen()
         }
         composable(BottomNavigationScreens.FAQ.route) {
-            FAQScreen(navController = navController)
+            FAQScreen()
         }
     }
 }

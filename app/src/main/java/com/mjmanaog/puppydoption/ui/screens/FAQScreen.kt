@@ -10,13 +10,11 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 import com.mjmanaog.puppydoption.ui.components.AppBar
 import com.mjmanaog.puppydoption.ui.components.ReusableHeaderAndBody
 
 @Composable
-fun FAQScreen(navController: NavController?) {
+fun FAQScreen() {
     Scaffold(topBar = {
         AppBar(
             title = "Frequently Asked Questions",

@@ -11,10 +11,8 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.DataSnapshot
@@ -22,9 +20,10 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.mjmanaog.puppydoption.ui.components.PuppyInfoScreen
-import com.mjmanaog.puppydoption.ui.network.model.PuppyInfo
-import com.mjmanaog.puppydoption.ui.network.model.puppyList
+import com.mjmanaog.puppydoption.helpers.ROUTE_LANDING
+import com.mjmanaog.puppydoption.helpers.ROUTE_MAIN
+import com.mjmanaog.puppydoption.network.model.PuppyModel
+import com.mjmanaog.puppydoption.network.model.puppyList
 import com.mjmanaog.puppydoption.ui.screens.*
 import com.mjmanaog.puppydoption.ui.theme.PuppydoptionTheme
 
@@ -56,7 +55,6 @@ class MainActivity : AppCompatActivity() {
         setContent {
             PuppydoptionTheme {
                 PuppyApplication()
-//                MainScreen()
             }
         }
     }
@@ -64,13 +62,13 @@ class MainActivity : AppCompatActivity() {
 
 @ExperimentalFoundationApi
 @Composable
-fun PuppyApplication(puppy: List<PuppyInfo.Puppy> = puppyList){
+fun PuppyApplication(puppy: List<PuppyModel.Puppy> = puppyList){
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "landing_screen"){
-        composable("landing_screen"){
+    NavHost(navController = navController, startDestination = ROUTE_LANDING){
+        composable(ROUTE_LANDING){
             LandingScreen(navController = navController)
         }
-        composable("main_screen") {
+        composable(ROUTE_MAIN) {
             MainScreen()
         }
     }

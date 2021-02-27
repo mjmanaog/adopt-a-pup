@@ -11,10 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.mjmanaog.puppydoption.R
-import com.mjmanaog.puppydoption.ui.theme.PuppydoptionTheme
 
 @Composable
 fun ContactCard(icon: Int, text: String) {
@@ -27,12 +24,12 @@ fun ContactCard(icon: Int, text: String) {
         backgroundColor = Color.White,
         shape = RoundedCornerShape(20)
     ) {
-        IconText(icon = icon, text = text, padding = 15)
+        ReusableIconAndText(icon = icon, text = text, padding = 15)
     }
 }
 
 @Composable
-fun IconText(icon: Int, text: String, padding: Int) {
+fun ReusableIconAndText(icon: Int, text: String, padding: Int) {
     Row(
         modifier = Modifier
             .padding(padding.dp),

@@ -16,13 +16,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
+import com.mjmanaog.puppydoption.helpers.ROUTE_PUPPY_INFO
 import com.mjmanaog.puppydoption.ui.components.AppBar
 import com.mjmanaog.puppydoption.ui.components.ItemPuppyCard
-import com.mjmanaog.puppydoption.ui.network.model.PuppyInfo
+import com.mjmanaog.puppydoption.network.model.PuppyModel
 
 @ExperimentalFoundationApi
 @Composable
-fun PuppyListScreen(puppies: List<PuppyInfo.Puppy>, navController: NavController?) {
+fun PuppyListScreen(puppies: List<PuppyModel.Puppy>, navController: NavController?) {
     Scaffold(topBar = { AppBar("Find your Puppy", Icons.Default.Home) {} }) {
         Surface(modifier = Modifier
             .fillMaxSize()
@@ -33,7 +34,7 @@ fun PuppyListScreen(puppies: List<PuppyInfo.Puppy>, navController: NavController
             ) {
                 items(puppies) { puppy ->
                     ItemPuppyCard(puppy) {
-                        navController?.navigate("puppy_info/${puppy.id}")
+                        navController?.navigate("${ROUTE_PUPPY_INFO}/${puppy.id}")
                     }
                 }
             }

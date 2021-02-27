@@ -1,8 +1,6 @@
-package com.mjmanaog.puppydoption.ui.network.model
+package com.mjmanaog.puppydoption.network.model
 
-import com.google.gson.annotations.SerializedName
-
-data class PuppyInfo(
+data class PuppyModel(
    val puppies: List<Puppy>
 ) {
     data class Puppy(
@@ -20,7 +18,7 @@ data class PuppyInfo(
 }
 
 val puppyList = arrayListOf(
-    PuppyInfo.Puppy(
+    PuppyModel.Puppy(
         1,
         "Lilo",
         "Female",
@@ -32,7 +30,7 @@ val puppyList = arrayListOf(
         "Auctor augue mauris augue neque gravida in fermentum et sollicitudin. Adipiscing diam donec adipiscing tristique. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
     ),
-    PuppyInfo.Puppy(
+    PuppyModel.Puppy(
         2,
         "Cady",
         "Male",
@@ -44,7 +42,7 @@ val puppyList = arrayListOf(
         "Auctor augue mauris augue neque gravida in fermentum et sollicitudin. Adipiscing diam donec adipiscing tristique. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
     ),
-    PuppyInfo.Puppy(
+    PuppyModel.Puppy(
         3,
         "Max",
         "Female",
@@ -56,7 +54,7 @@ val puppyList = arrayListOf(
         "Auctor augue mauris augue neque gravida in fermentum et sollicitudin. Adipiscing diam donec adipiscing tristique. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
     ),
-    PuppyInfo.Puppy(
+    PuppyModel.Puppy(
         4,
         "Gustavo",
         "Male",
@@ -68,7 +66,7 @@ val puppyList = arrayListOf(
         "Auctor augue mauris augue neque gravida in fermentum et sollicitudin. Adipiscing diam donec adipiscing tristique. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
     ),
-    PuppyInfo.Puppy(
+    PuppyModel.Puppy(
         5,
         "Edgar",
         "Male",
@@ -80,7 +78,7 @@ val puppyList = arrayListOf(
         "Auctor augue mauris augue neque gravida in fermentum et sollicitudin. Adipiscing diam donec adipiscing tristique. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
     ),
-    PuppyInfo.Puppy(
+    PuppyModel.Puppy(
         6,
         "Chonk",
         "Male",
@@ -92,7 +90,7 @@ val puppyList = arrayListOf(
         "Auctor augue mauris augue neque gravida in fermentum et sollicitudin. Adipiscing diam donec adipiscing tristique. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
     ),
-    PuppyInfo.Puppy(
+    PuppyModel.Puppy(
         7,
         "Sammy",
         "Female",
@@ -104,7 +102,7 @@ val puppyList = arrayListOf(
         "Auctor augue mauris augue neque gravida in fermentum et sollicitudin. Adipiscing diam donec adipiscing tristique. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
     ),
-    PuppyInfo.Puppy(
+    PuppyModel.Puppy(
         8,
         "Lettuce",
         "Male",
@@ -116,7 +114,7 @@ val puppyList = arrayListOf(
         "Auctor augue mauris augue neque gravida in fermentum et sollicitudin. Adipiscing diam donec adipiscing tristique. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
     ),
-    PuppyInfo.Puppy(
+    PuppyModel.Puppy(
         9,
         "Onion",
         "Female",

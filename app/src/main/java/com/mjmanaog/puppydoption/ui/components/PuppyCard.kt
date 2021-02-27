@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -20,17 +19,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
-import coil.transform.Transformation
 import com.mjmanaog.puppydoption.R
-import com.mjmanaog.puppydoption.ui.network.model.PuppyInfo
-import com.mjmanaog.puppydoption.ui.network.model.puppyList
+import com.mjmanaog.puppydoption.network.model.PuppyModel
+import com.mjmanaog.puppydoption.network.model.puppyList
 import com.mjmanaog.puppydoption.ui.theme.PuppydoptionTheme
 import dev.chrisbanes.accompanist.coil.CoilImage
 
 @Composable
-fun ItemPuppyCard(puppyInfo: PuppyInfo.Puppy, onClicked: () -> Unit) {
+fun ItemPuppyCard(puppyModel: PuppyModel.Puppy, onClicked: () -> Unit) {
     Card(
         modifier = Modifier
             .wrapContentWidth()
@@ -47,14 +44,14 @@ fun ItemPuppyCard(puppyInfo: PuppyInfo.Puppy, onClicked: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             PuppyImg(
-                puppyInfo.imageURL,
+                puppyModel.imageURL,
                 100.dp
             )
             PuppyContent(
-                puppyInfo.name,
-                puppyInfo.gender,
-                puppyInfo.breed,
-                puppyInfo.dob,
+                puppyModel.name,
+                puppyModel.gender,
+                puppyModel.breed,
+                puppyModel.dob,
                 Alignment.CenterHorizontally
             )
         }
@@ -115,7 +112,7 @@ fun PuppyContent(
 }
 
 @Composable
-fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
+fun PuppyInfoCard(puppyModel: PuppyModel.Puppy) {
     Column(
         modifier = Modifier.fillMaxWidth(),
     ) {
@@ -126,7 +123,7 @@ fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
                 .padding(bottom = 15.dp)
         ) {
             CoilImage(
-                data = puppyInfo.imageURL,
+                data = puppyModel.imageURL,
                 contentDescription = "Puppy Image",
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop,
@@ -142,7 +139,7 @@ fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             val paintGender: Painter = painterResource(
-                id = if (puppyInfo.gender.toLowerCase() == "female") {
+                id = if (puppyModel.gender.toLowerCase() == "female") {
                     R.drawable.ic_girl
                 } else {
                     R.drawable.ic_boy
@@ -153,7 +150,7 @@ fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
                 painter = paintGender,
                 contentDescription = "Gender Icon"
             )
-            DefaultH1TextOrange(text = puppyInfo.name)
+            DefaultH1TextOrange(text = puppyModel.name)
         }
         Row(
             modifier = Modifier
@@ -168,7 +165,7 @@ fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
                     .padding(5.dp)
                     .border(1.dp, MaterialTheme.colors.primaryVariant, RoundedCornerShape(20))
             ) {
-                IconText(icon = R.drawable.ic_calendar, text = puppyInfo.dob, 5)
+                ReusableIconAndText(icon = R.drawable.ic_calendar, text = puppyModel.dob, 5)
             }
             Box(
                 modifier = Modifier
@@ -177,7 +174,7 @@ fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
                     .padding(5.dp)
                     .border(1.dp, MaterialTheme.colors.primaryVariant, RoundedCornerShape(20))
             ) {
-                IconText(icon = R.drawable.ic_paw, text = puppyInfo.breed, 5)
+                ReusableIconAndText(icon = R.drawable.ic_paw, text = puppyModel.breed, 5)
             }
         }
         Row(
@@ -193,7 +190,7 @@ fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
                     .padding(5.dp)
                     .border(1.dp, MaterialTheme.colors.primaryVariant, RoundedCornerShape(20))
             ) {
-                IconText(icon = R.drawable.ic_weight, text = puppyInfo.weight, 5)
+                ReusableIconAndText(icon = R.drawable.ic_weight, text = puppyModel.weight, 5)
             }
             Box(
                 modifier = Modifier
@@ -202,7 +199,7 @@ fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
                     .padding(5.dp)
                     .border(1.dp, MaterialTheme.colors.primaryVariant, RoundedCornerShape(20))
             ) {
-                IconText(icon = R.drawable.ic_syringe, text = puppyInfo.vaccines, 5)
+                ReusableIconAndText(icon = R.drawable.ic_syringe, text = puppyModel.vaccines, 5)
             }
         }
         DefaultH1TextOrange(text = " ")
@@ -214,6 +211,6 @@ fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
 @Composable
 fun DefaultPreview() {
     PuppydoptionTheme {
-        PuppyInfoCard(puppyInfo = puppyList[0])
+        PuppyInfoCard(puppyModel = puppyList[0])
     }
 }

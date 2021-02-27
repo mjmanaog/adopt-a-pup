@@ -1,19 +1,15 @@
 package com.mjmanaog.puppydoption.ui.components
 
-import androidx.compose.foundation.gestures.scrollable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.mjmanaog.puppydoption.ui.network.model.PuppyInfo
-import com.mjmanaog.puppydoption.ui.network.model.puppyList
-import com.mjmanaog.puppydoption.ui.theme.PuppydoptionTheme
+import com.mjmanaog.puppydoption.network.model.puppyList
 
 @Composable
 fun PuppyInfoScreen(puppyId: Int, navController: NavHostController?) {

@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import com.mjmanaog.puppydoption.R
+import com.mjmanaog.puppydoption.helpers.ROUTE_MAIN
 import com.mjmanaog.puppydoption.ui.components.DefaultH2TextDark
 import com.mjmanaog.puppydoption.ui.components.DefaultH2TextWhite
 
@@ -22,8 +23,8 @@ import com.mjmanaog.puppydoption.ui.components.DefaultH2TextWhite
 @Composable
 fun LandingScreen(navController: NavController?) {
     Surface(modifier = Modifier.fillMaxSize()) {
-        LandingCard (){
-            navController?.navigate("main_screen")
+        LandingCard{
+            navController?.navigate(ROUTE_MAIN)
         }
     }
 }
@@ -54,12 +55,12 @@ fun LandingCard(clickAction: () -> Unit) {
 
             ) {
                 Text(
-                    text = "Puppy",
+                    text = "Pup",
                     style = MaterialTheme.typography.h1,
                     color = MaterialTheme.colors.secondaryVariant
                 )
                 Text(
-                    text = "doption",
+                    text = "adopt",
                     style = MaterialTheme.typography.h1,
                     color = MaterialTheme.colors.primaryVariant
                 )
