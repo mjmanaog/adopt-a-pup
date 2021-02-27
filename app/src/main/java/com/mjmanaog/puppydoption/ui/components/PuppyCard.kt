@@ -123,7 +123,7 @@ fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(300.dp)
-                .padding(bottom = 20.dp)
+                .padding(bottom = 15.dp)
         ) {
             CoilImage(
                 data = puppyInfo.imageURL,
@@ -138,7 +138,7 @@ fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
             )
         }
         Row(
-            modifier = Modifier.padding(start = 15.dp),
+            modifier = Modifier.padding(start = 15.dp, end = 15.dp, bottom = 15.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             val paintGender: Painter = painterResource(
@@ -158,7 +158,7 @@ fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 15.dp),
+                .padding(start = 15.dp, end = 15.dp,),
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             Box(
@@ -183,7 +183,7 @@ fun PuppyInfoCard(puppyInfo: PuppyInfo.Puppy) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 15.dp),
+                .padding(start = 15.dp, end = 15.dp,),
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             Box(
