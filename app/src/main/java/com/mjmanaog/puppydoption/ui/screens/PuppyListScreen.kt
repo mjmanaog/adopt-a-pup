@@ -20,10 +20,11 @@ import com.mjmanaog.puppydoption.helpers.ROUTE_PUPPY_INFO
 import com.mjmanaog.puppydoption.ui.components.AppBar
 import com.mjmanaog.puppydoption.ui.components.ItemPuppyCard
 import com.mjmanaog.puppydoption.network.model.PuppyModel
+import com.mjmanaog.puppydoption.network.model.puppyList
 
 @ExperimentalFoundationApi
 @Composable
-fun PuppyListScreen(puppies: List<PuppyModel.Puppy>, navController: NavController?) {
+fun PuppyListScreen(puppies: List<PuppyModel.Puppy> = puppyList, navController: NavController?) {
     Scaffold(topBar = { AppBar("Find your Puppy", Icons.Default.Home) {} }) {
         Surface(modifier = Modifier
             .fillMaxSize()

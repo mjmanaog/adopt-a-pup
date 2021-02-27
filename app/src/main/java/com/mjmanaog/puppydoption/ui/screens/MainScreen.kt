@@ -51,7 +51,7 @@ private fun MainScreenNavigationConfigurations(
 ) {
     NavHost(navController, startDestination = BottomNavigationScreens.PuppyList.route) {
         composable(BottomNavigationScreens.PuppyList.route) {
-            PuppyListScreen(puppies = puppyList, navController = navController)
+            PuppyListScreen( navController = navController)
         }
         composable(route = "${ROUTE_PUPPY_INFO}/{puppyId}", arguments = listOf(navArgument(ARG_PUPPY_ID){
             type = NavType.IntType

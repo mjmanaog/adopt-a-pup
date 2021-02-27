@@ -37,20 +37,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    fun longLog(aa : String){
-        if(aa.length > 4000){
-            Log.e("@@@", aa.substring(0,4000))
-            longLog(aa.substring(4000));
-        }else{
-            Log.e(" ", aa)
-        }
-    }
 }
 
 @ExperimentalFoundationApi
 @Composable
-fun PuppyApplication(puppy: List<PuppyModel.Puppy> = puppyList){
+fun PuppyApplication(){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = ROUTE_LANDING){
         composable(ROUTE_LANDING){
