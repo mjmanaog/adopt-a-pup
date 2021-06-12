@@ -91,5 +91,5 @@ private fun PuppyBottomNavigation(
 @Composable
 private fun currentRoute(navController: NavHostController): String? {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    return navBackStackEntry?.arguments?.getString(KEY_ROUTE)
+    return navBackStackEntry?.arguments?.getString("KEY_ROUTE")
 }

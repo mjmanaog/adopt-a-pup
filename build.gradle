@@ -7,7 +7,7 @@ buildscript {
         compose_activity_version = '1.3.0-beta01'
         compose_appcompat_version = '1.3.0'
         compose_constraintlayout_version = '1.0.0-alpha07'
-        compose_navigation_version = '1.0.0-alpha10'
+        compose_navigation_version = '2.4.0-alpha02'
         compose_lifecycle_version = '1.0.0-alpha06'
         compose_accompanist_version = "0.11.1"
         compose_utils_chrisbanes_coil = "0.6.2"
@@ -19,12 +19,28 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:$android_gradle_plugin_version"
+        classpath "com.android.tools.build:gradle:${android_gradle_plugin_version}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
+
+allprojects {
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_1_8.toString()
+            freeCompilerArgs += ["-Xskip-prerelease-check", "-progressive" ]
+            freeCompilerArgs += "-Xopt-in=kotlin.Experimental"
+            freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+            freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+            freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.FlowPreview"
+            useIR = true
+            allWarningsAsErrors = false
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

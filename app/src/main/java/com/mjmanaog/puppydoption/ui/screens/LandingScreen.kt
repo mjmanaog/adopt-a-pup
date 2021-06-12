@@ -13,7 +13,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 import com.mjmanaog.puppydoption.R
 import com.mjmanaog.puppydoption.helpers.ROUTE_MAIN
 import com.mjmanaog.puppydoption.ui.components.DefaultH2TextDark

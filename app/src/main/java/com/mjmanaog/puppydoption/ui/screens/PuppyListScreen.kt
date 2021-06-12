@@ -15,7 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 import com.mjmanaog.puppydoption.helpers.ROUTE_PUPPY_INFO
 import com.mjmanaog.puppydoption.ui.components.AppBar
 import com.mjmanaog.puppydoption.ui.components.ItemPuppyCard
