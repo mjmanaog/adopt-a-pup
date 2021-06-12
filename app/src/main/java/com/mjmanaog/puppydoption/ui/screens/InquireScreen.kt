@@ -14,7 +14,6 @@ import com.mjmanaog.puppydoption.R
 import com.mjmanaog.puppydoption.ui.components.AppBar
 import com.mjmanaog.puppydoption.ui.components.ContactCard
 
-
 @Composable
 fun InquireScreen(){
     Scaffold(topBar = {

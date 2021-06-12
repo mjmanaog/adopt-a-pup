@@ -8,23 +8,26 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.transform.CircleCropTransformation
+import com.google.accompanist.coil.rememberCoilPainter
 import com.mjmanaog.puppydoption.R
 import com.mjmanaog.puppydoption.network.model.PuppyModel
 import com.mjmanaog.puppydoption.network.model.puppyList
 import com.mjmanaog.puppydoption.ui.theme.PuppydoptionTheme
-import dev.chrisbanes.accompanist.coil.CoilImage
 
 @Composable
 fun ItemPuppyCard(puppyModel: PuppyModel.Puppy, onClicked: () -> Unit) {
@@ -60,6 +63,10 @@ fun ItemPuppyCard(puppyModel: PuppyModel.Puppy, onClicked: () -> Unit) {
 
 @Composable
 fun PuppyImg(imgURL: String, imgSize: Dp) {
+    val painter = rememberCoilPainter(request = imgURL,requestBuilder ={
+        transformations(CircleCropTransformation())
+    }, previewPlaceholder = R.mipmap.ic_launcher)
+
     Card(
         shape = CircleShape,
         border = BorderStroke(
@@ -71,12 +78,11 @@ fun PuppyImg(imgURL: String, imgSize: Dp) {
             .size(imgSize),
         elevation = 4.dp
     ) {
-        CoilImage(
-            data = imgURL,
+        Image(
+            painter = painter,
             contentDescription = "Puppy Image",
-            requestBuilder = {
-                transformations(CircleCropTransformation())
-            }
+            contentScale = ContentScale.FillBounds,
+            modifier = Modifier.fillMaxSize()
         )
     }
 }
@@ -122,16 +128,11 @@ fun PuppyInfoCard(puppyModel: PuppyModel.Puppy) {
                 .height(300.dp)
                 .padding(bottom = 15.dp)
         ) {
-            CoilImage(
-                data = puppyModel.imageURL,
+            val painter = rememberCoilPainter(request = puppyModel.imageURL, previewPlaceholder = R.mipmap.ic_launcher)
+            Image(
+                painter = painter,
                 contentDescription = "Puppy Image",
                 modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop,
-                loading = {
-                    Box(Modifier.matchParentSize()) {
-                        CircularProgressIndicator(Modifier.align(Alignment.Center))
-                    }
-                },
             )
         }
         Row(

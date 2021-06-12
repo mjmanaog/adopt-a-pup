@@ -17,7 +17,6 @@ import androidx.navigation.compose.*
 import com.mjmanaog.puppydoption.R
 import com.mjmanaog.puppydoption.helpers.*
 import com.mjmanaog.puppydoption.ui.components.PuppyInfoScreen
-import com.mjmanaog.puppydoption.network.model.puppyList
 
 sealed class BottomNavigationScreens(val route: String, @StringRes val resourceId: Int, val icon: Int) {
     object PuppyList : BottomNavigationScreens(ROUTE_PUPPY_LIST, R.string.nav_find_puppy, R.drawable.ic_find)
@@ -92,5 +91,5 @@ private fun PuppyBottomNavigation(
 @Composable
 private fun currentRoute(navController: NavHostController): String? {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    return navBackStackEntry?.arguments?.getString(KEY_ROUTE)
+    return navBackStackEntry?.arguments?.getString("KEY_ROUTE")
 }
