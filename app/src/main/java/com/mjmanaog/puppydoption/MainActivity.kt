@@ -52,12 +52,3 @@ fun PuppyApplication(){
         }
     }
 }
-
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    PuppydoptionTheme {
-
-    }
-}

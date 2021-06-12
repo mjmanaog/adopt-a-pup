@@ -71,16 +71,6 @@ fun LandingCard(clickAction: () -> Unit) {
                 painter = painterLogo,
                 contentDescription = "App Logo"
             )
-//            val context = LocalContext.current
-//            val customView = remember { LottieAnimationView(context)}
-//            AndroidView(factory = { customView }){ view ->
-//                with(view){
-//                    repeatMode = LottieDrawable.RESTART
-//                    setAnimation(doggoAnimation.animId)
-//                    playAnimation()
-//                }
-//            }
-
             DefaultH2TextDark(text = "Find your best buddy in just a few clicks!", TextAlign.Center)
             Button(
                 onClick = clickAction, colors = ButtonDefaults.textButtonColors(
